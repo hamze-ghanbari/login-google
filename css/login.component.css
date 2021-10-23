@@ -1,6 +1,36 @@
 .boxlogin {
   width: 100%;
-  height: 100%;
-  background-color: blue;
+  height: 100vh;
+  background-color: #f6f6f8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.boxlogin .boxlink {
+  width: 400px;
+  height: 70px;
+  box-shadow: 0 0 5px 2px #adadad;
+  margin-top: 8%;
+  cursor: pointer;
+  font-size: 30px;
+  font-weight: bold;
+  outline: none;
+  border: 0;
+  border-radius: 5px;
+  color: white;
+  text-align: center;
+}
+
+.boxlogin .google {
+  background-color: red;
+}
+
+.boxlogin .facebook {
+  background-color: #3030f7;
+}
+
+.boxlogin .twitter {
+  background-color: gold;
 }
 /*# sourceMappingURL=login.component.css.map */

@@ -1,8 +1,42 @@
-$color-blue : blue;
+$color-light : rgb(246, 246, 248);
+$color-grey : rgb(173, 173, 173);
+$color-white : white;
+$color-blue : rgb(48, 48, 247);
+$color-red : red;
+$color-gold : gold;
 .boxlogin{
     width : 100%;
-    height : 100%;
-    background-color:$color-blue;
+    height : 100vh;
+    background-color:$color-light;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
    
 
+   .boxlink{
+       width:400px;
+       height: 70px;
+       box-shadow: 0 0 5px 2px $color-grey ;
+       margin-top: 8%;
+       cursor: pointer;
+       font-size: 30px;
+       font-weight: bold;
+       outline: none;
+       border: 0;
+       border-radius: 5px;
+       color : $color-white;
+       text-align: center;
+   }
+   .google{
+       background-color: $color-red;
+   }
+   .facebook{
+       background-color: $color-blue;
+       
+   }
+   .twitter{
+       background-color: $color-gold;
+     
+   }
 }
+ 
