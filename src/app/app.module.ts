@@ -8,12 +8,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider } from 'angularx-social-login';
 
 import { HomeComponent } from './home/home.component';
+import { AdminComponent } from './admin/admin.component';
+import { NotauthorizedComponent } from './notauthorized/notauthorized.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    
-    HomeComponent
+    HomeComponent,
+    AdminComponent,
+    NotauthorizedComponent
   ],
   imports: [
     BrowserModule,
