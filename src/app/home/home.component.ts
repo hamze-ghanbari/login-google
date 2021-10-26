@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SocialAuthService, GoogleLoginProvider, SocialUser } from 'angularx-social-login';
@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   loginForm: FormGroup | undefined;
   socialUser!: SocialUser;
   isLoggedin: boolean = false;  
-  accessToken! : string;
+
   constructor(
     private formBuilder: FormBuilder, 
     private socialAuthService: SocialAuthService,
@@ -37,16 +37,18 @@ export class HomeComponent implements OnInit {
   // Initial implicite flow using OAuth2 protocol
   loginWithGoogle(): void {
     this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
-    this.socialAuthService.authState.subscribe((user) => {
-      this.socialUser = user;
+    this.socialAuthService.authState.subscribe(user => {
+      if(user){
+        this.socialUser = user;
       this.isLoggedin = (user != null);
-      this.accessToken=this.socialUser.response.access_token;
-      this.tokenService.saveToken(this.accessToken);
+      this.tokenService.saveToken(this.socialUser.response.access_token);
       console.log(this.socialUser);
+      }
     });
+  
   }
 
    
  
-
+ 
 }
