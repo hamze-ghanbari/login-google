@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   loginForm: FormGroup | undefined;
   socialUser!: SocialUser;
   isLoggedin: boolean = false;  
-  
+  accessToken! : string;
   constructor(
     private formBuilder: FormBuilder, 
     private socialAuthService: SocialAuthService,
@@ -36,14 +36,14 @@ export class HomeComponent implements OnInit {
 
   // Initial implicite flow using OAuth2 protocol
   loginWithGoogle(): void {
+    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
     this.socialAuthService.authState.subscribe((user) => {
       this.socialUser = user;
-     this.isLoggedin = (user != null);
-    
-      this.tokenService.saveToken(this.socialUser.response.access_token);
+      this.isLoggedin = (user != null);
+      this.accessToken=this.socialUser.response.access_token;
+      this.tokenService.saveToken(this.accessToken);
       console.log(this.socialUser);
     });
-    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
   }
 
    

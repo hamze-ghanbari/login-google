@@ -9,7 +9,7 @@ export class TokenService {
   constructor(private socialAuthService: SocialAuthService,) { }
 
   saveToken(token : string){
-    localStorage.removeItem('token');
+  //  localStorage.removeItem('token');
     localStorage.setItem('token',token);
   }
 
@@ -17,9 +17,8 @@ export class TokenService {
     return localStorage.getItem('token');
   }
 
-  signOut(){
-    this.socialAuthService.signOut();
-    localStorage.clear();
-    //localStorage.clear();
+  signOut(){ 
+   localStorage.clear();
+   this.socialAuthService.signOut();
   }
 }
