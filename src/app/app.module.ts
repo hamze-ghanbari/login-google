@@ -10,13 +10,17 @@ import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider } from 
 import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
 import { NotauthorizedComponent } from './notauthorized/notauthorized.component';
+ 
+ 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AdminComponent,
-    NotauthorizedComponent
+    NotauthorizedComponent,
+     
+  
   ],
   imports: [
     BrowserModule,

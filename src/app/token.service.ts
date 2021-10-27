@@ -6,10 +6,10 @@ import { SocialAuthService } from 'angularx-social-login';
 })
 export class TokenService {
 
-  constructor(private socialAuthService: SocialAuthService,) { }
+  constructor(private socialAuthService: SocialAuthService) { }
 
   saveToken(token : string){
-  //  localStorage.removeItem('token');
+    localStorage.removeItem('token');
     localStorage.setItem('token',token);
   }
 

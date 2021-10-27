@@ -38,9 +38,9 @@ export class HomeComponent implements OnInit {
   loginWithGoogle(): void {
     this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
     this.socialAuthService.authState.subscribe(user => {
+      this.isLoggedin = (user != null);
       if(user){
         this.socialUser = user;
-      this.isLoggedin = (user != null);
       this.tokenService.saveToken(this.socialUser.response.access_token);
       console.log(this.socialUser);
       }
